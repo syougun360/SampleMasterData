@@ -22,5 +22,13 @@ public string Name { get {return name; } set { name = value;} }
 int rare;
 public int Rare { get {return rare; } set { rare = value;} }
 
+[SerializeField]
+int hp;
+public int Hp { get {return hp; } set { hp = value;} }
+
+[SerializeField]
+int power;
+public int Power { get {return power; } set { power = value;} }
+
     }
 }
