@@ -9,37 +9,40 @@ using GDataDB.Linq;
 
 using UnityQuickSheet;
 
-///
-/// !!! Machine generated code !!!
-///
-[CustomEditor(typeof(GachaRareWeight))]
-public class GachaRareWeightEditor : BaseGoogleEditor<GachaRareWeight>
-{	    
-    public override bool Load()
-    {        
-        GachaRareWeight targetData = target as GachaRareWeight;
+namespace MasterData
+{
+    ///
+    /// !!! Machine generated code !!!
+    ///
+    [CustomEditor(typeof(GachaRareWeight))]
+    public class GachaRareWeightEditor : BaseGoogleEditor<GachaRareWeight>
+    {	    
+        public override bool Load()
+        {        
+            GachaRareWeight targetData = target as GachaRareWeight;
         
-        var client = new DatabaseClient("", "");
-        string error = string.Empty;
-        var db = client.GetDatabase(targetData.SheetName, ref error);	
-        var table = db.GetTable<GachaRareWeightData>(targetData.WorksheetName) ?? db.CreateTable<GachaRareWeightData>(targetData.WorksheetName);
+            var client = new DatabaseClient("", "");
+            string error = string.Empty;
+            var db = client.GetDatabase(targetData.SheetName, ref error);	
+            var table = db.GetTable<GachaRareWeightData>(targetData.WorksheetName) ?? db.CreateTable<GachaRareWeightData>(targetData.WorksheetName);
         
-        List<GachaRareWeightData> myDataList = new List<GachaRareWeightData>();
+            List<GachaRareWeightData> myDataList = new List<GachaRareWeightData>();
         
-        var all = table.FindAll();
-        foreach(var elem in all)
-        {
-            GachaRareWeightData data = new GachaRareWeightData();
+            var all = table.FindAll();
+            foreach(var elem in all)
+            {
+                GachaRareWeightData data = new GachaRareWeightData();
             
-            data = Cloner.DeepCopy<GachaRareWeightData>(elem.Element);
-            myDataList.Add(data);
-        }
+                data = Cloner.DeepCopy<GachaRareWeightData>(elem.Element);
+                myDataList.Add(data);
+            }
                 
-        targetData.dataArray = myDataList.ToArray();
+            targetData.dataArray = myDataList.ToArray();
         
-        EditorUtility.SetDirty(targetData);
-        AssetDatabase.SaveAssets();
+            EditorUtility.SetDirty(targetData);
+            AssetDatabase.SaveAssets();
         
-        return true;
+            return true;
+        }
     }
 }

@@ -10,12 +10,12 @@ namespace MasterData
     /// 
     public partial class GoogleDataAssetUtility
     {
-        [MenuItem("Assets/Create/Google/$ClassName")]
-        public static void $AssetFileCreateFuncName()
+        [MenuItem("Assets/Create/Google/Character")]
+        public static void CreateCharacterAssetFile()
         {
-            $ClassName asset = CustomAssetUtility.CreateAsset<$ClassName>();
-            asset.SheetName = "$SpreadSheetName";
-            asset.WorksheetName = "$ClassName";
+            Character asset = CustomAssetUtility.CreateAsset<Character>();
+            asset.SheetName = "CharacterDB";
+            asset.WorksheetName = "Character";
             EditorUtility.SetDirty(asset);        
         }
     

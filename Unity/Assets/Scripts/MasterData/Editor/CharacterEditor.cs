@@ -14,26 +14,26 @@ namespace MasterData
     ///
     /// !!! Machine generated code !!!
     ///
-    [CustomEditor(typeof(GachaTop))]
-    public class GachaTopEditor : BaseGoogleEditor<GachaTop>
+    [CustomEditor(typeof(Character))]
+    public class CharacterEditor : BaseGoogleEditor<Character>
     {	    
         public override bool Load()
         {        
-            GachaTop targetData = target as GachaTop;
+            Character targetData = target as Character;
         
             var client = new DatabaseClient("", "");
             string error = string.Empty;
             var db = client.GetDatabase(targetData.SheetName, ref error);	
-            var table = db.GetTable<GachaTopData>(targetData.WorksheetName) ?? db.CreateTable<GachaTopData>(targetData.WorksheetName);
+            var table = db.GetTable<CharacterData>(targetData.WorksheetName) ?? db.CreateTable<CharacterData>(targetData.WorksheetName);
         
-            List<GachaTopData> myDataList = new List<GachaTopData>();
+            List<CharacterData> myDataList = new List<CharacterData>();
         
             var all = table.FindAll();
             foreach(var elem in all)
             {
-                GachaTopData data = new GachaTopData();
+                CharacterData data = new CharacterData();
             
-                data = Cloner.DeepCopy<GachaTopData>(elem.Element);
+                data = Cloner.DeepCopy<CharacterData>(elem.Element);
                 myDataList.Add(data);
             }
                 

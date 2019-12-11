@@ -12,7 +12,7 @@ namespace MasterData
     /// can be serialized onto an asset data file.
     /// 
     [System.Serializable]
-    public class $ClassName : ScriptableObject 
+    public class Character : ScriptableObject 
     {
         [HideInInspector] [SerializeField] 
         public string SheetName = "";
@@ -21,7 +21,7 @@ namespace MasterData
         public string WorksheetName = "";
     
         // Note: initialize in OnEnable() not here.
-        public $DataClassName[] dataArray;
+        public CharacterData[] dataArray;
     
         void OnEnable()
         {
@@ -34,13 +34,13 @@ namespace MasterData
             //    because OnEnable is called whenever Unity builds.
             // 
             if (dataArray == null)
-                dataArray = new $DataClassName[0];
+                dataArray = new CharacterData[0];
         }
     
         //
         // Write a proper query methods for retrieving data.
         //
-        //public $DataClassName FindByKey(string key)
+        //public CharacterData FindByKey(string key)
         //{
         //    return Array.Find(dataArray, d => d.Key == key);
         //}

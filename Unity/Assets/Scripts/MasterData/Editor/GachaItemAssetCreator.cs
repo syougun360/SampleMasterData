@@ -3,18 +3,21 @@ using UnityEditor;
 using System.IO;
 using UnityQuickSheet;
 
-///
-/// !!! Machine generated code !!!
-/// 
-public partial class GoogleDataAssetUtility
+namespace MasterData
 {
-    [MenuItem("Assets/Create/Google/GachaItem")]
-    public static void CreateGachaItemAssetFile()
+    ///
+    /// !!! Machine generated code !!!
+    /// 
+    public partial class GoogleDataAssetUtility
     {
-        GachaItem asset = CustomAssetUtility.CreateAsset<GachaItem>();
-        asset.SheetName = "GachaDB";
-        asset.WorksheetName = "GachaItem";
-        EditorUtility.SetDirty(asset);        
-    }
+        [MenuItem("Assets/Create/Google/GachaItem")]
+        public static void CreateGachaItemAssetFile()
+        {
+            GachaItem asset = CustomAssetUtility.CreateAsset<GachaItem>();
+            asset.SheetName = "GachaDB";
+            asset.WorksheetName = "GachaItem";
+            EditorUtility.SetDirty(asset);        
+        }
     
+    }
 }

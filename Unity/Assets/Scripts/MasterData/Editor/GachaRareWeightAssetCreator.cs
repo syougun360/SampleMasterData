@@ -3,18 +3,21 @@ using UnityEditor;
 using System.IO;
 using UnityQuickSheet;
 
-///
-/// !!! Machine generated code !!!
-/// 
-public partial class GoogleDataAssetUtility
+namespace MasterData
 {
-    [MenuItem("Assets/Create/Google/GachaRareWeight")]
-    public static void CreateGachaRareWeightAssetFile()
+    ///
+    /// !!! Machine generated code !!!
+    /// 
+    public partial class GoogleDataAssetUtility
     {
-        GachaRareWeight asset = CustomAssetUtility.CreateAsset<GachaRareWeight>();
-        asset.SheetName = "GachaDB";
-        asset.WorksheetName = "GachaRareWeight";
-        EditorUtility.SetDirty(asset);        
-    }
+        [MenuItem("Assets/Create/Google/GachaRareWeight")]
+        public static void CreateGachaRareWeightAssetFile()
+        {
+            GachaRareWeight asset = CustomAssetUtility.CreateAsset<GachaRareWeight>();
+            asset.SheetName = "GachaDB";
+            asset.WorksheetName = "GachaRareWeight";
+            EditorUtility.SetDirty(asset);        
+        }
     
+    }
 }

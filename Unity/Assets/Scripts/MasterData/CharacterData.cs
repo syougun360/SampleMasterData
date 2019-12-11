@@ -8,23 +8,19 @@ namespace MasterData
     /// !!! DO NOT CHANGE Tabs to Spaces !!!
     ///
     [System.Serializable]
-    public class GachaRareWeightData
+    public class CharacterData
     {
 	    [SerializeField]
 int id;
 public int Id { get {return id; } set { id = value;} }
 
 [SerializeField]
-int top_id;
-public int Top_Id { get {return top_id; } set { top_id = value;} }
+string name;
+public string Name { get {return name; } set { name = value;} }
 
 [SerializeField]
 int rare;
 public int Rare { get {return rare; } set { rare = value;} }
-
-[SerializeField]
-int weight;
-public int Weight { get {return weight; } set { weight = value;} }
 
     }
 }
