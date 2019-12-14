@@ -12,6 +12,7 @@ public class GachaItem : MonoBehaviour
         public Text nameText;
         public Text rareText;
         public Text rateText;
+        public Image iconImage;
     }
 
     [SerializeField]
@@ -87,12 +88,15 @@ public class GachaItem : MonoBehaviour
             uiData.nameText = uiData.trans.Find("Text_Name").GetComponent<Text>();
             uiData.rareText = uiData.trans.Find("Text_Rare").GetComponent<Text>();
             uiData.rateText = uiData.trans.Find("Text_Rate").GetComponent<Text>();
+            uiData.iconImage = uiData.trans.Find("Image_Icon").GetComponent<Image>();
 
             var characterData = GachaManager.GetCharacterData(itemData.Characterid);
             var rareWeightData = GachaManager.GetGachaRareWeightData(itemData.Topid, itemData.Groupid);
             uiData.nameText.text = characterData.Name;
             uiData.rareText.text = "★" + characterData.Rare;
             uiData.rateText.text = "排出率：" + rareWeightData.Weight + "%";
+            uiData.iconImage.sprite = IconManager.GetIconSprite(characterData.Iconid);
+
             uiGachaItemData.Add(uiData);
         }
 

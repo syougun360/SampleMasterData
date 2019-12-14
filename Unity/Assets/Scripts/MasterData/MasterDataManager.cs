@@ -13,6 +13,8 @@ public class MasterDataManager : MonoBehaviour
         GACHA_RATE_WEIGHT,
         GACHA_ITEM,
 
+        ICON,
+
         MAX,
     }
 
@@ -31,6 +33,7 @@ public class MasterDataManager : MonoBehaviour
         "gacha_top",
         "gacha_rare_weight",
         "gacha_item",
+        "icon",
     };
 
     static MasterDataManager instance;

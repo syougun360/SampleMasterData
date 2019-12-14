@@ -8,7 +8,8 @@ public class GachaManager : MonoBehaviour
     enum State
     {
         None,
-        Load,
+        LoadSystem,
+        LoadGame,
         Init,
         Execute,
         End
@@ -34,15 +35,18 @@ public class GachaManager : MonoBehaviour
 
     private void Start()
     {
-        state = State.Load;
+        state = State.LoadSystem;
     }
 
     private void Update()
     {
         switch (state)
         {
-            case State.Load:
-                UpdateLoad();
+            case State.LoadSystem:
+                UpdateLoadSystem();
+                break;
+            case State.LoadGame:
+                UpdateLoadGame();
                 break;
             case State.Init:
                 UpdateInit();
@@ -56,9 +60,18 @@ public class GachaManager : MonoBehaviour
         }
     }
 
-    void UpdateLoad()
+    void UpdateLoadSystem()
     {
         if (MasterDataManager.IsLoaded())
+        {
+            IconManager.StartLoad();
+            state = State.LoadGame;
+        }
+    }
+
+    void UpdateLoadGame()
+    {
+        if (IconManager.IsLoaded())
         {
             state = State.Init;
         }

@@ -26,5 +26,13 @@ namespace MasterData
         int power;
         public int Power { get {return power; } set { power = value;} }
         
+        [SerializeField]
+        int iconid;
+        public int Iconid { get {return iconid; } set { iconid = value;} }
+        
+        [SerializeField]
+        int stiliconid;
+        public int Stiliconid { get {return stiliconid; } set { stiliconid = value;} }
+        
     }
 }

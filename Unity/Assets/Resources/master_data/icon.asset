@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5069d0d70bbc345eeb337ecb68d8fd7f, type: 3}
+  m_Name: icon
+  m_EditorClassIdentifier: 
+  SheetName: IconTextureDB
+  WorksheetName: icon
+  dataArray:
+  - id: 0
+    folder: icon/
+    name: unknown
+  - id: 1
+    folder: icon/characters/
+    name: chara_1
+  - id: 2
+    folder: icon/characters/
+    name: chara_2
+  - id: 3
+    folder: icon/characters/
+    name: chara_3
+  - id: 4
+    folder: icon/characters/
+    name: chara_4
+  - id: 5
+    folder: icon/characters/
+    name: chara_5
+  - id: 6
+    folder: icon/characters/
+    name: chara_6
+  - id: 7
+    folder: stil/characters/
+    name: chara_1
+  - id: 8
+    folder: stil/characters/
+    name: chara_2
+  - id: 9
+    folder: stil/characters/
+    name: chara_3
+  - id: 10
+    folder: stil/characters/
+    name: chara_4
+  - id: 11
+    folder: stil/characters/
+    name: chara_5
+  - id: 12
+    folder: stil/characters/
+    name: chara_6

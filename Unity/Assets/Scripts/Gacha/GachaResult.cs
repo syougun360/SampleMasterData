@@ -20,6 +20,9 @@ public class GachaResult : MonoBehaviour
     [SerializeField]
     Button closeButton = null;
 
+    [SerializeField]
+    Image stilImage = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,5 +43,7 @@ public class GachaResult : MonoBehaviour
         rareText.text = "★" + data.Rare.ToString();
         hpText.text = data.HP.ToString();
         powerText.text = data.Power.ToString();
+
+        stilImage.sprite = IconManager.GetIconSprite(data.Stiliconid);
     }
 }

@@ -20,28 +20,40 @@ MonoBehaviour:
     rare: 6
     hp: 1000
     power: 100
+    iconid: 1
+    stiliconid: 7
   - id: 2
     name: "\u3055\u304F\u307E"
     rare: 5
     hp: 500
     power: 50
+    iconid: 2
+    stiliconid: 8
   - id: 3
     name: "\u3054\u30FC\u304F\u3046"
     rare: 4
     hp: 300
     power: 30
+    iconid: 3
+    stiliconid: 9
   - id: 4
     name: "\u30D9\u30B8\u30FC"
     rare: 5
     hp: 500
     power: 60
+    iconid: 4
+    stiliconid: 10
   - id: 5
     name: "\u3084\u3055\u3044\u307E\u3093"
     rare: 4
     hp: 300
     power: 20
+    iconid: 5
+    stiliconid: 11
   - id: 6
     name: "\u304A\u306B\u3055\u3093"
     rare: 6
     hp: 1200
     power: 200
+    iconid: 6
+    stiliconid: 12
