@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Character
   m_EditorClassIdentifier: 
   templatePath: QuickSheet/GDataPlugin/Templates
-  scriptFilePath: Scripts/MasterData
+  scriptFilePath: Scripts/MasterData/Data
   editorScriptFilePath: Scripts/MasterData/Editor
   sheetName: CharacterDB
   workSheetName: Character

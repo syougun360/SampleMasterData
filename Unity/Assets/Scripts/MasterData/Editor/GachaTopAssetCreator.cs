@@ -5,9 +5,6 @@ using UnityQuickSheet;
 
 namespace MasterData
 {
-    ///
-    /// !!! Machine generated code !!!
-    /// 
     public partial class GoogleDataAssetUtility
     {
         [MenuItem("Assets/Create/Google/GachaTop")]

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace MasterData
 {
     [System.Serializable]
-    public class $ClassName : ScriptableObject 
+    public class GachaTop : ScriptableObject 
     {
         [HideInInspector] [SerializeField] 
         public string SheetName = "";
@@ -15,12 +15,12 @@ namespace MasterData
         public string WorksheetName = "";
     
         // Note: initialize in OnEnable() not here.
-        public $DataClassName[] dataArray;
+        public GachaTopData[] dataArray;
     
         void OnEnable()
         {
             if (dataArray == null)
-                dataArray = new $DataClassName[0];
+                dataArray = new GachaTopData[0];
         }
     }
 }

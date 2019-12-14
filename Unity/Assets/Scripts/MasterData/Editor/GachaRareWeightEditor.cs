@@ -11,9 +11,6 @@ using UnityQuickSheet;
 
 namespace MasterData
 {
-    ///
-    /// !!! Machine generated code !!!
-    ///
     [CustomEditor(typeof(GachaRareWeight))]
     public class GachaRareWeightEditor : BaseGoogleEditor<GachaRareWeight>
     {	    

@@ -11,9 +11,6 @@ using UnityQuickSheet;
 
 namespace MasterData
 {
-    ///
-    /// !!! Machine generated code !!!
-    ///
     [CustomEditor(typeof(Character))]
     public class CharacterEditor : BaseGoogleEditor<Character>
     {	    

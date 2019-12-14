@@ -3,13 +3,9 @@ using System.Collections;
 
 namespace MasterData
 {
-    ///
-    /// !!! Machine generated code !!!
-    /// !!! DO NOT CHANGE Tabs to Spaces !!!
-    ///
     [System.Serializable]
     public class $ClassName
     {
-	    $MemberFields
+$MemberFields
     }
 }

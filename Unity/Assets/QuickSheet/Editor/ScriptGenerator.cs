@@ -163,10 +163,10 @@ namespace UnityQuickSheet
             if (match.Success)
             {
                 // Set indent level to number of tabs before $Functions keyword
-                IndentLevel = match.Groups[1].Value.Length;
+                IndentLevel = match.Groups[1].Value.Length + 4;
                 if (m_ScriptPrescription.memberFields != null)
                 {
-                    foreach(var field in m_ScriptPrescription.memberFields)
+                    foreach (var field in m_ScriptPrescription.memberFields)
                     {
                         WriteMemberField(field);
                         WriteProperty(field);
