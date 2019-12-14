@@ -16,14 +16,18 @@ MonoBehaviour:
   WorksheetName: GachaTop
   dataArray:
   - id: 0
-    name: 
+    name: "\u661F\uFF16\u78BA\u5B9A\u30AC\u30C1\u30E3"
     opend_at: 0
     closed_at: 0
   - id: 1
-    name: 
+    name: "\u661F\uFF15\u78BA\u5B9A\u30AC\u30C1\u30E3"
     opend_at: 0
     closed_at: 0
   - id: 2
-    name: 
+    name: "\u901A\u5E38\u30AC\u30C1\u30E3"
+    opend_at: 0
+    closed_at: 0
+  - id: 3
+    name: "\u30A4\u30D9\u30F3\u30C8\u30AC\u30C1\u30E3"
     opend_at: 0
     closed_at: 0
