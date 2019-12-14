@@ -8,15 +8,19 @@ namespace MasterData
     {
         [SerializeField]
         int id;
-        public int Id { get {return id; } set { id = value;} }
+        public int ID { get {return id; } set { id = value;} }
         
         [SerializeField]
-        int top_id;
-        public int Top_Id { get {return top_id; } set { top_id = value;} }
+        int topid;
+        public int Topid { get {return topid; } set { topid = value;} }
         
         [SerializeField]
-        int character_id;
-        public int Character_Id { get {return character_id; } set { character_id = value;} }
+        int characterid;
+        public int Characterid { get {return characterid; } set { characterid = value;} }
+        
+        [SerializeField]
+        int groupid;
+        public int Groupid { get {return groupid; } set { groupid = value;} }
         
     }
 }

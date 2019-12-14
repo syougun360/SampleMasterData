@@ -14,4 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SheetName: CharacterDB
   WorksheetName: Character
-  dataArray: []
+  dataArray:
+  - id: 1
+    name: "\u3051\u3044\u3058\u308D\u3046"
+    rare: 6
+    hp: 1000
+    power: 100
+  - id: 2
+    name: "\u3055\u304F\u307E"
+    rare: 5
+    hp: 500
+    power: 50
+  - id: 3
+    name: "\u3054\u30FC\u304F\u3046"
+    rare: 4
+    hp: 300
+    power: 30
+  - id: 4
+    name: "\u30D9\u30B8\u30FC"
+    rare: 5
+    hp: 500
+    power: 60
+  - id: 5
+    name: "\u3084\u3055\u3044\u307E\u3093"
+    rare: 4
+    hp: 300
+    power: 20
+  - id: 6
+    name: "\u304A\u306B\u3055\u3093"
+    rare: 6
+    hp: 1200
+    power: 200

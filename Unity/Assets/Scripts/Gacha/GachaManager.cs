@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GachaManager : MonoBehaviour
@@ -84,7 +85,7 @@ public class GachaManager : MonoBehaviour
         if (isInstance)
         {
             var gachaTopData = MasterDataManager.GetMasterData<MasterData.GachaTop>(MasterDataManager.MASTER_DATE_ID.GACHA_TOP);
-            instance.gachaTop.Open(ref gachaTopData.dataArray);
+            instance.gachaTop.Open(gachaTopData.dataArray);
         }
     }
 
@@ -97,14 +98,76 @@ public class GachaManager : MonoBehaviour
             var gachaItemData = MasterDataManager.GetMasterData<MasterData.GachaItem>(MasterDataManager.MASTER_DATE_ID.GACHA_ITEM);
             foreach (var itemData in gachaItemData.dataArray)
             {
-                if (itemData.Top_Id == data.Id)
+                if (itemData.Topid == data.ID)
                 {
                     itemDataList.Add(itemData);
                 }
             }
 
             var dataArray = itemDataList.ToArray();
-            instance.gachaItem.Open(ref dataArray);
+            instance.gachaItem.Open(dataArray);
         }
+    }
+
+    public static MasterData.CharacterData GetCharacterData(int id)
+    {
+        var characterData = MasterDataManager.GetMasterData<MasterData.Character>(MasterDataManager.MASTER_DATE_ID.CHARACTER);
+        foreach (var character in characterData.dataArray)
+        {
+            if (character.ID == id)
+            {
+                return character;
+            }
+        }
+
+        return null;
+    }
+
+    public static MasterData.GachaRareWeightData GetGachaRareWeightData(int topId, int groupId)
+    {
+        var gachaRareWeightData = MasterDataManager.GetMasterData<MasterData.GachaRareWeight>(MasterDataManager.MASTER_DATE_ID.GACHA_RATE_WEIGHT);
+        foreach (var gachaRareWeight in gachaRareWeightData.dataArray)
+        {
+            if (gachaRareWeight.Topid == topId)
+            {
+                if (gachaRareWeight.Groupid == groupId)
+                {
+                    return gachaRareWeight;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public static void OpenGachaResult(ref MasterData.GachaItemData[] items)
+    {
+        List<float> weightList = new List<float>();
+        foreach (var item in items)
+        {
+            var weightData = GetGachaRareWeightData(item.Topid, item.Groupid);
+            weightList.Add(weightData.Weight);
+        }
+
+        int index = GetRandomIndex(weightList.ToArray());
+        var character = GetCharacterData(items[index].Characterid);
+        instance.gachaResult.Open(character);
+    }
+
+    static int GetRandomIndex(float[] weightTable)
+    {
+        var totalWeight = weightTable.Sum();
+        var value = Random.Range(1.0f, totalWeight + 1.0f);
+        var retIndex = -1;
+        for (var i = 0; i < weightTable.Length; ++i)
+        {
+            if (weightTable[i] >= value)
+            {
+                retIndex = i;
+                break;
+            }
+            value -= weightTable[i];
+        }
+        return retIndex;
     }
 }

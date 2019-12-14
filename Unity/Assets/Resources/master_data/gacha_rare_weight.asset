@@ -14,4 +14,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SheetName: GachaDB
   WorksheetName: GachaRareWeight
-  dataArray: []
+  dataArray:
+  - id: 1
+    topid: 1
+    groupid: 6
+    weight: 100
+  - id: 2
+    topid: 2
+    groupid: 5
+    weight: 100
+  - id: 3
+    topid: 3
+    groupid: 6
+    weight: 10
+  - id: 4
+    topid: 3
+    groupid: 5
+    weight: 30
+  - id: 5
+    topid: 3
+    groupid: 4
+    weight: 60
+  - id: 6
+    topid: 4
+    groupid: 6
+    weight: 0
+  - id: 7
+    topid: 4
+    groupid: 5
+    weight: 0
+  - id: 8
+    topid: 4
+    groupid: 4
+    weight: 100

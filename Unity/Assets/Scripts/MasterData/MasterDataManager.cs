@@ -29,7 +29,7 @@ public class MasterDataManager : MonoBehaviour
         "",
         "character",
         "gacha_top",
-        "gacha_rate_weight",
+        "gacha_rare_weight",
         "gacha_item",
     };
 

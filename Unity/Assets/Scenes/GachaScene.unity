@@ -905,7 +905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000048228052}
+  m_AnchoredPosition: {x: 0, y: 0.000026066547}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &643015646
@@ -1094,7 +1094,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u623B\u308B"
+  m_Text: "\u9589\u3058\u308B"
 --- !u!222 &651186942
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2017,6 +2017,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f186bfee03547478b717f90b1b293a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText: {fileID: 971764662}
+  rareText: {fileID: 1931403642}
+  hpText: {fileID: 400756829}
+  powerText: {fileID: 713775019}
+  closeButton: {fileID: 1030941706}
 --- !u!1 &1030941704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,7 +2035,7 @@ GameObject:
   - component: {fileID: 1030941707}
   - component: {fileID: 1030941706}
   m_Layer: 5
-  m_Name: Button_Back
+  m_Name: Button_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3149,10 +3154,10 @@ RectTransform:
   m_Father: {fileID: 635407939}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 200}
+  m_SizeDelta: {x: 1064, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1662538657
 GameObject:
@@ -3512,7 +3517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000048228052}
+  m_AnchoredPosition: {x: 0, y: 0.000026066547}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2017862555

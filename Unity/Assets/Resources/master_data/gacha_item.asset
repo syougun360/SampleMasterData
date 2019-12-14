@@ -15,12 +15,67 @@ MonoBehaviour:
   SheetName: GachaDB
   WorksheetName: GachaItem
   dataArray:
-  - id: 0
-    top_id: 0
-    character_id: 0
   - id: 1
-    top_id: 0
-    character_id: 0
+    topid: 1
+    characterid: 1
+    groupid: 6
   - id: 2
-    top_id: 0
-    character_id: 0
+    topid: 1
+    characterid: 6
+    groupid: 6
+  - id: 3
+    topid: 2
+    characterid: 2
+    groupid: 5
+  - id: 4
+    topid: 2
+    characterid: 4
+    groupid: 5
+  - id: 5
+    topid: 3
+    characterid: 1
+    groupid: 6
+  - id: 6
+    topid: 3
+    characterid: 2
+    groupid: 5
+  - id: 7
+    topid: 3
+    characterid: 3
+    groupid: 4
+  - id: 8
+    topid: 3
+    characterid: 4
+    groupid: 5
+  - id: 9
+    topid: 3
+    characterid: 5
+    groupid: 4
+  - id: 10
+    topid: 3
+    characterid: 6
+    groupid: 6
+  - id: 11
+    topid: 4
+    characterid: 1
+    groupid: 6
+  - id: 12
+    topid: 4
+    characterid: 2
+    groupid: 5
+  - id: 13
+    topid: 4
+    characterid: 3
+    groupid: 4
+  - id: 14
+    topid: 4
+    characterid: 4
+    groupid: 5
+  - id: 15
+    topid: 4
+    characterid: 5
+    groupid: 4
+  - id: 16
+    topid: 4
+    characterid: 6
+    groupid: 6

@@ -19,19 +19,19 @@ MonoBehaviour:
   workSheetName: GachaRareWeight
   columnHeaderList:
   - type: 3
-    name: id
+    name: ID
     isEnable: 0
     isArray: 0
   - type: 3
-    name: top_id
+    name: TopID
     isEnable: 0
     isArray: 0
   - type: 3
-    name: rare
+    name: GroupID
     isEnable: 0
     isArray: 0
-  - type: 3
-    name: weight
+  - type: 5
+    name: Weight
     isEnable: 0
     isArray: 0
   AccessCode: 

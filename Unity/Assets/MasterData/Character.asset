@@ -19,23 +19,23 @@ MonoBehaviour:
   workSheetName: Character
   columnHeaderList:
   - type: 3
-    name: id
+    name: ID
     isEnable: 0
     isArray: 0
   - type: 1
-    name: name
+    name: Name
     isEnable: 0
     isArray: 0
   - type: 3
-    name: rare
+    name: Rare
     isEnable: 0
     isArray: 0
   - type: 3
-    name: hp
+    name: HP
     isEnable: 0
     isArray: 0
   - type: 3
-    name: power
+    name: Power
     isEnable: 0
     isArray: 0
   AccessCode: 

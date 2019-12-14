@@ -25,20 +25,36 @@ public class GachaTop : MonoBehaviour
     private void Start()
     {
         gameObject.SetActive(false);
+        gachaItemBase.SetActive(false);
     }
 
-    public void Open(ref MasterData.GachaTopData[] datas)
+    private void Reset()
+    {
+        foreach (var data in uiGachaTopData)
+        {
+            Destroy(data.trans.gameObject);
+        }
+
+        uiGachaTopData.Clear();
+    }
+
+    public void Open(MasterData.GachaTopData[] datas)
     {
         gameObject.SetActive(true);
 
         RectTransform baseRectTrans = gachaItemBase.transform as RectTransform;
         float sizeY = baseRectTrans.sizeDelta.y;
 
+        // 降順
+        Array.Sort(datas, (a, b) => b.Drawpriority - a.Drawpriority);
+
         int maxCount = datas.Length;
         for (int i = 0; i < maxCount; i++)
         {
             var gachaData = datas[i];
-            var instance = GameObject.Instantiate(gachaItemBase);
+            var instance = Instantiate(gachaItemBase);
+            instance.SetActive(true);
+
             instance.transform.SetParent(contentsTrans);
             instance.transform.localPosition = gachaItemBase.transform.localPosition + (Vector3.down * sizeY * i);
 
@@ -58,13 +74,13 @@ public class GachaTop : MonoBehaviour
         var size = contentsTrans.sizeDelta;
         size.y = maxCount * sizeY;
         contentsTrans.sizeDelta = size;
-
-        gachaItemBase.SetActive(false);
     }
 
 
     void OnClick(MasterData.GachaTopData data)
     {
+        Reset();
+
         gameObject.SetActive(false);
         GachaManager.OpenGachaItemList(data);
     }

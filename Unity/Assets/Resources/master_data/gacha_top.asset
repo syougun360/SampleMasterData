@@ -15,19 +15,23 @@ MonoBehaviour:
   SheetName: GachaDB
   WorksheetName: GachaTop
   dataArray:
-  - id: 0
-    name: "\u661F\uFF16\u78BA\u5B9A\u30AC\u30C1\u30E3"
-    opend_at: 0
-    closed_at: 0
   - id: 1
-    name: "\u661F\uFF15\u78BA\u5B9A\u30AC\u30C1\u30E3"
-    opend_at: 0
-    closed_at: 0
+    name: "\u661F\uFF16\u78BA\u5B9A\u30AC\u30C1\u30E3"
+    drawpriority: 100
+    opendat: 0
+    closedat: 0
   - id: 2
-    name: "\u901A\u5E38\u30AC\u30C1\u30E3"
-    opend_at: 0
-    closed_at: 0
+    name: "\u661F\uFF15\u78BA\u5B9A\u30AC\u30C1\u30E3"
+    drawpriority: 50
+    opendat: 0
+    closedat: 0
   - id: 3
+    name: "\u901A\u5E38\u30AC\u30C1\u30E3"
+    drawpriority: 10
+    opendat: 0
+    closedat: 0
+  - id: 4
     name: "\u30A4\u30D9\u30F3\u30C8\u30AC\u30C1\u30E3"
-    opend_at: 0
-    closed_at: 0
+    drawpriority: 30
+    opendat: 0
+    closedat: 0

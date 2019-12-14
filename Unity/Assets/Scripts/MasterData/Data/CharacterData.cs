@@ -8,7 +8,7 @@ namespace MasterData
     {
         [SerializeField]
         int id;
-        public int Id { get {return id; } set { id = value;} }
+        public int ID { get {return id; } set { id = value;} }
         
         [SerializeField]
         string name;
@@ -20,7 +20,7 @@ namespace MasterData
         
         [SerializeField]
         int hp;
-        public int Hp { get {return hp; } set { hp = value;} }
+        public int HP { get {return hp; } set { hp = value;} }
         
         [SerializeField]
         int power;

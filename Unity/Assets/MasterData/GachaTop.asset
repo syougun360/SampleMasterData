@@ -19,19 +19,23 @@ MonoBehaviour:
   workSheetName: GachaTop
   columnHeaderList:
   - type: 3
-    name: id
+    name: ID
     isEnable: 0
     isArray: 0
   - type: 1
-    name: name
+    name: Name
+    isEnable: 0
+    isArray: 0
+  - type: 3
+    name: DrawPriority
     isEnable: 0
     isArray: 0
   - type: 4
-    name: opend_at
+    name: OpendAt
     isEnable: 0
     isArray: 0
   - type: 4
-    name: closed_at
+    name: ClosedAt
     isEnable: 0
     isArray: 0
   AccessCode: 
