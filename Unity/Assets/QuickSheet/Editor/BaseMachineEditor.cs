@@ -275,6 +275,7 @@ namespace UnityQuickSheet
                                 builder.AppendLine("        " + enumID + ",");
                             }
                         }
+                        builder.AppendLine("        Max,");
                         builder.AppendLine("    }");
                     }
                 }

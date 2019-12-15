@@ -200,8 +200,8 @@ namespace UnityQuickSheet
             else
                 headerDic = machine.ColumnHeaderList.ToDictionary(k => k.name);
 
-            List<ColumnHeader> tmpColumnList = new List<ColumnHeader>();
-            Dictionary<int, List<string>> tmpEnumList = new Dictionary<int, List<string>>();
+            Dictionary<int, ColumnHeader> tmpColumnDic = new Dictionary<int, ColumnHeader>();
+            Dictionary<int, List<string>> tmpEnumDic = new Dictionary<int, List<string>>();
 
             int order = 0;
             // query the first columns only.
@@ -213,18 +213,20 @@ namespace UnityQuickSheet
                 Match m = re.Match(cell.Title.Text);
                 if (int.Parse(m.Value) > 1)
                 {
-                    int index = (int)cell.Column - 1;
-                    ColumnHeader h = tmpColumnList[index];
-                    if (h != null)
+                    if (tmpColumnDic.ContainsKey((int)cell.Column))
                     {
-                        if (h.type == CellType.Enum)
+                        ColumnHeader h = tmpColumnDic[(int)cell.Column];
+                        if (h != null)
                         {
-                            if (!tmpEnumList.ContainsKey((int)cell.Column))
+                            if (h.type == CellType.Enum)
                             {
-                                tmpEnumList.Add((int)cell.Column, new List<string>());
-                            }
+                                if (!tmpEnumDic.ContainsKey((int)cell.Column))
+                                {
+                                    tmpEnumDic.Add((int)cell.Column, new List<string>());
+                                }
 
-                            tmpEnumList[(int)cell.Column].Add(cell.Value);
+                                tmpEnumDic[(int)cell.Column].Add(cell.Value);
+                            }
                         }
                     }
                     return;
@@ -250,14 +252,19 @@ namespace UnityQuickSheet
                             column.isArray = h.isArray;
                         }
                     }
-                    tmpColumnList.Add(column);
+                    tmpColumnDic.Add((int)cell.Column, column);
                 }
 
             });
 
             // update (all of settings are reset when it reimports)
+            List<ColumnHeader> tmpColumnList = new List<ColumnHeader>();
+            foreach (var dic in tmpColumnDic)
+            {
+                tmpColumnList.Add(dic.Value);
+            }
             machine.ColumnHeaderList = tmpColumnList;
-            machine.EnumFiledList = tmpEnumList;
+            machine.EnumFiledList = tmpEnumDic;
 
             EditorUtility.SetDirty(machine);
             AssetDatabase.SaveAssets();
