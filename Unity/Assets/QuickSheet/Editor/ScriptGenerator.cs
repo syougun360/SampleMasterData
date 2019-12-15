@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Globalization;
 
 using Object = UnityEngine.Object;
+using System.Text;
 
 namespace UnityQuickSheet
 {
@@ -199,11 +200,13 @@ namespace UnityQuickSheet
             var fieldName = GetFieldNameForField(field);
             string tmp;
             if (field.type == CellType.Enum)
-                tmp = field.Name + " " + fieldName + ";";
+            {
+                tmp = field.Name.ToUpper() + " " + fieldName + ";";
+            }
             else
             {
                 if (field.IsArrayType)
-                    tmp = field.Type + "[]" + " " + fieldName + " = new " + field.Type + "[0]" +";";
+                    tmp = field.Type + "[]" + " " + fieldName + " = new " + field.Type + "[0]" + ";";
                 else
                     tmp = field.Type + " " + fieldName + ";";
             }
@@ -221,7 +224,7 @@ namespace UnityQuickSheet
             var fieldName = GetFieldNameForField(field);
 
             if (field.type == CellType.Enum)
-                tmp += "public " + field.Name + " " + propertyName + " ";
+                tmp += "public " + field.Name.ToUpper() + " " + propertyName + " ";
             else
             {
                 if (field.IsArrayType)
@@ -248,8 +251,8 @@ namespace UnityQuickSheet
         /// </summary>
         protected virtual string GetPropertyNameForField(MemberFieldData field)
         {
-            if (field.type == CellType.Enum)
-                return field.Name.ToUpper();
+            //if (field.type == CellType.Enum)
+            //    return field.Name.ToUpper();
 
             // To prevent an error can happen when the name of the column header has all lower case characters.
             TextInfo ti = new CultureInfo("en-US", false).TextInfo;

@@ -93,6 +93,14 @@ namespace UnityQuickSheet
         [SerializeField]
         protected List<ColumnHeader> columnHeaderList;
 
+        [SerializeField]
+        protected Dictionary<int, List<string>> enumFiledList = new Dictionary<int, List<string>>();
+        public Dictionary<int, List<string>> EnumFiledList
+        {
+            get { return enumFiledList; }
+            set { enumFiledList = value; }
+        }
+
         /// <summary>
         /// Return true, if the list is instantiated and has any its item more than one.
         /// </summary>

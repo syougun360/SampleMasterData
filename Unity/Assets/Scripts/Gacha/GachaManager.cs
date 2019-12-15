@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GachaManager : MonoBehaviour
 {
-    enum State
+    enum STATE
     {
         None,
         LoadSystem,
@@ -25,7 +25,7 @@ public class GachaManager : MonoBehaviour
     static GachaManager instance = null;
     static bool isInstance = false;
 
-    State state = State.None;
+    STATE state = STATE.None;
 
     private void Awake()
     {
@@ -35,26 +35,26 @@ public class GachaManager : MonoBehaviour
 
     private void Start()
     {
-        state = State.LoadSystem;
+        state = STATE.LoadSystem;
     }
 
     private void Update()
     {
         switch (state)
         {
-            case State.LoadSystem:
+            case STATE.LoadSystem:
                 UpdateLoadSystem();
                 break;
-            case State.LoadGame:
+            case STATE.LoadGame:
                 UpdateLoadGame();
                 break;
-            case State.Init:
+            case STATE.Init:
                 UpdateInit();
                 break;
-            case State.Execute:
+            case STATE.Execute:
                 UpdateExecute();
                 break;
-            case State.End:
+            case STATE.End:
                 UpdateEnd();
                 break;
         }
@@ -65,7 +65,7 @@ public class GachaManager : MonoBehaviour
         if (MasterDataManager.IsLoaded())
         {
             IconManager.StartLoad();
-            state = State.LoadGame;
+            state = STATE.LoadGame;
         }
     }
 
@@ -73,14 +73,14 @@ public class GachaManager : MonoBehaviour
     {
         if (IconManager.IsLoaded())
         {
-            state = State.Init;
+            state = STATE.Init;
         }
     }
 
     void UpdateInit()
     {
         OpenGachaTop();
-        state = State.Execute;
+        state = STATE.Execute;
     }
 
     void UpdateExecute()
@@ -90,7 +90,7 @@ public class GachaManager : MonoBehaviour
 
     void UpdateEnd()
     {
-        state = State.None;
+        state = STATE.None;
     }
 
     public static void OpenGachaTop()

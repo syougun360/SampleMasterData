@@ -11,26 +11,26 @@ using UnityQuickSheet;
 
 namespace MasterData
 {
-    [CustomEditor(typeof(icon))]
-    public class iconEditor : BaseGoogleEditor<icon>
+    [CustomEditor(typeof(Icon))]
+    public class IconEditor : BaseGoogleEditor<Icon>
     {	    
         public override bool Load()
         {        
-            icon targetData = target as icon;
+            Icon targetData = target as Icon;
         
             var client = new DatabaseClient("", "");
             string error = string.Empty;
             var db = client.GetDatabase(targetData.SheetName, ref error);	
-            var table = db.GetTable<iconData>(targetData.WorksheetName) ?? db.CreateTable<iconData>(targetData.WorksheetName);
+            var table = db.GetTable<IconData>(targetData.WorksheetName) ?? db.CreateTable<IconData>(targetData.WorksheetName);
         
-            List<iconData> myDataList = new List<iconData>();
+            List<IconData> myDataList = new List<IconData>();
         
             var all = table.FindAll();
             foreach(var elem in all)
             {
-                iconData data = new iconData();
+                IconData data = new IconData();
             
-                data = Cloner.DeepCopy<iconData>(elem.Element);
+                data = Cloner.DeepCopy<IconData>(elem.Element);
                 myDataList.Add(data);
             }
                 

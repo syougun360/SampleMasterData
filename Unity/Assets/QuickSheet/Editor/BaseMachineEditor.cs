@@ -11,6 +11,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace UnityQuickSheet
 {
@@ -83,6 +84,7 @@ namespace UnityQuickSheet
                 CreateScriptableObjectEditorClassScript(m, sp);
                 CreateDataClassScript(m, sp);
                 CreateAssetCreationScript(m, sp);
+                CreateEnumScript(m, sp);
             }
 
             AssetDatabase.Refresh();
@@ -221,6 +223,68 @@ namespace UnityQuickSheet
             }
         }
 
+        /// <summary>
+        /// Create a data class which describes the spreadsheet and write it down on the specified folder.
+        /// </summary>
+        protected void CreateEnumScript(BaseMachine machine, ScriptPrescription sp)
+        {
+            // check the directory path exists
+            string fullPath = TargetPathForEnum(machine.WorkSheetName);
+            string folderPath = Path.GetDirectoryName(fullPath);
+            if (!Directory.Exists(folderPath))
+            {
+                EditorUtility.DisplayDialog(
+                    "Warning",
+                    "The folder for runtime script files does not exist. Check the path " + folderPath + " exists.",
+                    "OK"
+                    );
+                return;
+            }
+
+            List<MemberFieldData> fieldList = new List<MemberFieldData>();
+
+            //FIXME: replace ValueType to CellType and support Enum type.
+            foreach (ColumnHeader header in machine.ColumnHeaderList)
+            {
+                if (header.type == CellType.Enum)
+                {
+                    MemberFieldData member = new MemberFieldData();
+                    member.Name = header.name;
+                    member.type = header.type;
+                    member.IsArrayType = header.isArray;
+                    fieldList.Add(member);
+                }
+            }
+
+            // write a script to the given folder.		
+            using (var writer = new StreamWriter(fullPath))
+            {
+                StringBuilder builder = new StringBuilder();
+                builder.AppendLine("namespace MasterData");
+                builder.AppendLine("{");
+                foreach (var field in fieldList)
+                {
+                    if (field.type == CellType.Enum)
+                    {
+                        builder.AppendLine("    public enum " + field.Name.ToUpper());
+                        builder.AppendLine("    {");
+                        foreach (var enumFiled in machine.EnumFiledList)
+                        {
+                            foreach (var enumID in enumFiled.Value)
+                            {
+                                builder.AppendLine("        " + enumID + ",");
+                            }
+                        }
+                        builder.AppendLine("    }");
+                    }
+                }
+
+                builder.AppendLine("}");
+                writer.Write(builder.ToString());
+                writer.Close();
+            }
+        }
+
         protected virtual void CreateAssetCreationScript(BaseMachine m, ScriptPrescription sp)
         {
             Debug.LogWarning("!!! It should be implemented in the derived class !!!");
@@ -249,6 +313,15 @@ namespace UnityQuickSheet
         protected string TargetPathForData(string worksheetName)
         {
             return Path.Combine("Assets/" + machine.RuntimeClassPath, worksheetName + "Data" + "." + "cs");
+        }
+
+        /// <summary>
+        /// data class script file has 'WorkSheetNameData' for its filename.
+        /// e.g. "Assets/Script/Data/Runtime/ItemData.cs"
+        /// </summary>
+        protected string TargetPathForEnum(string worksheetName)
+        {
+            return Path.Combine("Assets/" + machine.RuntimeClassPath, worksheetName + "Enum" + "." + "cs");
         }
 
         /// <summary>

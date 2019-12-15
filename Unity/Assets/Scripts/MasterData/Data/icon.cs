@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace MasterData
 {
     [System.Serializable]
-    public class icon : ScriptableObject 
+    public class Icon : ScriptableObject 
     {
         [HideInInspector] [SerializeField] 
         public string SheetName = "";
@@ -15,12 +15,12 @@ namespace MasterData
         public string WorksheetName = "";
     
         // Note: initialize in OnEnable() not here.
-        public iconData[] dataArray;
+        public IconData[] dataArray;
     
         void OnEnable()
         {
             if (dataArray == null)
-                dataArray = new iconData[0];
+                dataArray = new IconData[0];
         }
     }
 }

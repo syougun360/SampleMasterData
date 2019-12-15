@@ -4,11 +4,15 @@ using System.Collections;
 namespace MasterData
 {
     [System.Serializable]
-    public class iconData
+    public class IconData
     {
         [SerializeField]
         int id;
         public int ID { get {return id; } set { id = value;} }
+        
+        [SerializeField]
+        ICONLABEL iconlabel;
+        public ICONLABEL Iconlabel { get {return iconlabel; } set { iconlabel = value;} }
         
         [SerializeField]
         string folder;

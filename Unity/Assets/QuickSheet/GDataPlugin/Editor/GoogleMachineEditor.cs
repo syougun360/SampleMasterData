@@ -201,18 +201,34 @@ namespace UnityQuickSheet
                 headerDic = machine.ColumnHeaderList.ToDictionary(k => k.name);
 
             List<ColumnHeader> tmpColumnList = new List<ColumnHeader>();
+            Dictionary<int, List<string>> tmpEnumList = new Dictionary<int, List<string>>();
 
             int order = 0;
             // query the first columns only.
             DoCellQuery((cell) =>
             {
-
                 // get numerical value from a cell's address in A1 notation
                 // only retrieves first column of the worksheet 
                 // which is used for member fields of the created data class.
                 Match m = re.Match(cell.Title.Text);
                 if (int.Parse(m.Value) > 1)
+                {
+                    int index = (int)cell.Column - 1;
+                    ColumnHeader h = tmpColumnList[index];
+                    if (h != null)
+                    {
+                        if (h.type == CellType.Enum)
+                        {
+                            if (!tmpEnumList.ContainsKey((int)cell.Column))
+                            {
+                                tmpEnumList.Add((int)cell.Column, new List<string>());
+                            }
+
+                            tmpEnumList[(int)cell.Column].Add(cell.Value);
+                        }
+                    }
                     return;
+                }
 
                 // check the column header is valid
                 if (!IsValidHeader(cell.Value))
@@ -222,23 +238,26 @@ namespace UnityQuickSheet
                     return;
                 }
 
-                ColumnHeader column = ParseColumnHeader(cell.Value, order++);
-                if (headerDic != null && headerDic.ContainsKey(cell.Value))
                 {
-                    // if the column is already exist, copy its name and type from the exist one.
-                    ColumnHeader h = machine.ColumnHeaderList.Find(x => x.name == column.name);
-                    if (h != null)
+                    ColumnHeader column = ParseColumnHeader(cell.Value, order++);
+                    if (headerDic != null && headerDic.ContainsKey(cell.Value))
                     {
-                        column.type = h.type;
-                        column.isArray = h.isArray;
+                        // if the column is already exist, copy its name and type from the exist one.
+                        ColumnHeader h = machine.ColumnHeaderList.Find(x => x.name == column.name);
+                        if (h != null)
+                        {
+                            column.type = h.type;
+                            column.isArray = h.isArray;
+                        }
                     }
+                    tmpColumnList.Add(column);
                 }
 
-                tmpColumnList.Add(column);
             });
 
             // update (all of settings are reset when it reimports)
             machine.ColumnHeaderList = tmpColumnList;
+            machine.EnumFiledList = tmpEnumList;
 
             EditorUtility.SetDirty(machine);
             AssetDatabase.SaveAssets();

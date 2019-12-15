@@ -16,17 +16,21 @@ MonoBehaviour:
   scriptFilePath: Scripts/MasterData/Data
   editorScriptFilePath: Scripts/MasterData/Editor
   sheetName: IconTextureDB
-  workSheetName: icon
+  workSheetName: Icon
   columnHeaderList:
-  - type: 3
+  - type: 0
     name: ID
     isEnable: 0
     isArray: 0
-  - type: 1
+  - type: 0
+    name: IconLabel
+    isEnable: 0
+    isArray: 0
+  - type: 0
     name: Folder
     isEnable: 0
     isArray: 0
-  - type: 1
+  - type: 0
     name: Name
     isEnable: 0
     isArray: 0

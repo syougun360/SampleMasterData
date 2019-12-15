@@ -7,6 +7,7 @@ public class IconManager : MonoBehaviour
     class IconLoadData
     {
         public int id;
+        public MasterData.ICONLABEL label;
         public bool isLoaded = false;
         public ResourceRequest resourceRequest;
         public Sprite sprite;
@@ -32,13 +33,14 @@ public class IconManager : MonoBehaviour
             return;
         }
 
-        var iconData = MasterDataManager.GetMasterData<MasterData.icon>(MasterDataManager.MASTER_DATE_ID.ICON);
+        var iconData = MasterDataManager.GetMasterData<MasterData.Icon>(MasterDataManager.MASTER_DATE_ID.ICON);
         foreach (var data in iconData.dataArray)
         {
             IconLoadData loadData = new IconLoadData();
             string path = data.Folder + data.Name;
             loadData.resourceRequest = Resources.LoadAsync<Sprite>(path);
             loadData.id = data.ID;
+            loadData.label = data.Iconlabel;
             instance.iconLoadData.Add(loadData);
         }
 
@@ -109,6 +111,29 @@ public class IconManager : MonoBehaviour
         foreach (var data in instance.iconLoadData)
         {
             if (data.id == id)
+            {
+                if (!data.isLoaded)
+                {
+                    return instance.iconLoadData[0].sprite;
+                }
+
+                return data.sprite;
+            }
+        }
+
+        return instance.iconLoadData[0].sprite;
+    }
+
+    public static Sprite GetIconSprite(MasterData.ICONLABEL label)
+    {
+        if (!isInstance)
+        {
+            return null;
+        }
+
+        foreach (var data in instance.iconLoadData)
+        {
+            if (data.label == label)
             {
                 if (!data.isLoaded)
                 {

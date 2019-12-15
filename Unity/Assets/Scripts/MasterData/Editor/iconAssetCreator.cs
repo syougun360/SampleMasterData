@@ -7,12 +7,12 @@ namespace MasterData
 {
     public partial class GoogleDataAssetUtility
     {
-        [MenuItem("Assets/Create/Google/icon")]
-        public static void CreateiconAssetFile()
+        [MenuItem("Assets/Create/Google/Icon")]
+        public static void CreateIconAssetFile()
         {
-            icon asset = CustomAssetUtility.CreateAsset<icon>();
+            Icon asset = CustomAssetUtility.CreateAsset<Icon>();
             asset.SheetName = "IconTextureDB";
-            asset.WorksheetName = "icon";
+            asset.WorksheetName = "Icon";
             EditorUtility.SetDirty(asset);        
         }
     
