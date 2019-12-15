@@ -17,4 +17,5 @@ namespace MasterData
         StilChara_6,
         Max,
     }
+
 }

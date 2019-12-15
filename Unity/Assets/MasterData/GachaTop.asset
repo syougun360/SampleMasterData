@@ -38,4 +38,5 @@ MonoBehaviour:
     name: ClosedAt
     isEnable: 0
     isArray: 0
+  enumFiledList: []
   AccessCode: 
