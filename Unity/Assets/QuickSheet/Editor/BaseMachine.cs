@@ -28,6 +28,13 @@ namespace UnityQuickSheet
         public int OrderNO { get; set; }
     }
 
+    [System.Serializable]
+    public class EnumData
+    {
+        public string name;
+        public List<string> enumList = new List<string>();
+    }
+
     /// <summary>
     /// A class which stores various settings for a worksheet which is imported.
     /// </summary>
@@ -94,8 +101,8 @@ namespace UnityQuickSheet
         protected List<ColumnHeader> columnHeaderList;
 
         [SerializeField]
-        protected Dictionary<int, List<string>> enumFiledList = new Dictionary<int, List<string>>();
-        public Dictionary<int, List<string>> EnumFiledList
+        protected List<EnumData> enumFiledList;
+        public List<EnumData> EnumFiledList
         {
             get { return enumFiledList; }
             set { enumFiledList = value; }
@@ -120,6 +127,8 @@ namespace UnityQuickSheet
         {
             if (columnHeaderList == null)
                 columnHeaderList = new List<ColumnHeader>();
+            if (enumFiledList == null)
+                enumFiledList = new List<EnumData>();
         }
 
         /// <summary>

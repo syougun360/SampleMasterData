@@ -201,7 +201,7 @@ namespace UnityQuickSheet
                 headerDic = machine.ColumnHeaderList.ToDictionary(k => k.name);
 
             Dictionary<int, ColumnHeader> tmpColumnDic = new Dictionary<int, ColumnHeader>();
-            Dictionary<int, List<string>> tmpEnumDic = new Dictionary<int, List<string>>();
+            Dictionary<string, List<string>> tmpEnumDic = new Dictionary<string, List<string>>();
 
             int order = 0;
             // query the first columns only.
@@ -220,12 +220,12 @@ namespace UnityQuickSheet
                         {
                             if (h.type == CellType.Enum)
                             {
-                                if (!tmpEnumDic.ContainsKey((int)cell.Column))
+                                if (!tmpEnumDic.ContainsKey(h.name))
                                 {
-                                    tmpEnumDic.Add((int)cell.Column, new List<string>());
+                                    tmpEnumDic.Add(h.name, new List<string>());
                                 }
 
-                                tmpEnumDic[(int)cell.Column].Add(cell.Value);
+                                tmpEnumDic[h.name].Add(cell.Value);
                             }
                         }
                     }
@@ -264,7 +264,17 @@ namespace UnityQuickSheet
                 tmpColumnList.Add(dic.Value);
             }
             machine.ColumnHeaderList = tmpColumnList;
-            machine.EnumFiledList = tmpEnumDic;
+
+            List<EnumData> tmpEnumList = new List<EnumData>();
+            foreach (var dic in tmpEnumDic)
+            {
+                tmpEnumList.Add(new EnumData()
+                {
+                    name = dic.Key,
+                    enumList = dic.Value
+                });
+            }
+            machine.EnumFiledList = tmpEnumList;
 
             EditorUtility.SetDirty(machine);
             AssetDatabase.SaveAssets();

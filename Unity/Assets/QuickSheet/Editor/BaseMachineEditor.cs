@@ -264,20 +264,18 @@ namespace UnityQuickSheet
                 builder.AppendLine("{");
                 foreach (var field in fieldList)
                 {
-                    if (field.type == CellType.Enum)
+                    builder.AppendLine("    public enum " + field.Name.ToUpper());
+                    builder.AppendLine("    {");
+
+                    var enumField = machine.EnumFiledList.Find(data => data.name == field.Name);
+                    foreach (var enumID in enumField.enumList)
                     {
-                        builder.AppendLine("    public enum " + field.Name.ToUpper());
-                        builder.AppendLine("    {");
-                        foreach (var enumFiled in machine.EnumFiledList)
-                        {
-                            foreach (var enumID in enumFiled.Value)
-                            {
-                                builder.AppendLine("        " + enumID + ",");
-                            }
-                        }
-                        builder.AppendLine("        Max,");
-                        builder.AppendLine("    }");
+                        builder.AppendLine("        " + enumID + ",");
                     }
+
+                    builder.AppendLine("        Max,");
+                    builder.AppendLine("    }");
+                    builder.AppendLine("");
                 }
 
                 builder.AppendLine("}");
