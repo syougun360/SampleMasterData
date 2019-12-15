@@ -1,6 +1,15 @@
 # SampleMasterData
 データドリブンのサンプルコード
 
+### 使っているライブラリー
+* QuickSheet
+  * https://github.com/kimsama/Unity-QuickSheet
+  * 今回は、このライブラリーを拡張しています。
+
+### Unityパッケージ
+* https://github.com/syougun360/SampleMasterData/raw/master/MasterDataPackage.unitypackage
+* 上記のパスをクリックすると、ダウンロードが始まります。
+* このパッケージを既存プロジェクトにインポートすれば、すぐ使えます。
 
 ### マスターデータ
 * Gacha
